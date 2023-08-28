@@ -52,16 +52,11 @@ nav a {
     margin-bottom: 20px;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #333;
     color: white;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    z-index: 2;
 }
 
 /* Announcements section styles */
@@ -69,10 +64,10 @@ footer {
     background-color: #f2f2f2; /* Light gray background */
     padding: 20px;
     width: calc(25% - 40px); /* Adjust width and padding */
-    position: sticky;
-    top: 60px; /* Adjust the top value */
-    right: 0;
-    margin-right: 20px; /* Adjust margin */
+    position: fixed;
+    top: calc(100% - 200px); /* Adjust the top value */
+    right: 20px;
+    z-index: 1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
 }
 
@@ -89,6 +84,7 @@ footer {
 /* Adjust main content to make space for announcements */
 main {
     margin-right: calc(25% + 20px); /* Match the width of the announcements */
+    margin-bottom: 220px; /* Adjust margin to make space for announcements and footer */
 }
 
 body {
