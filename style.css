@@ -58,8 +58,9 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
-    position: relative; /* Add this */
-    z-index: 1; /* Add this */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 /* New section for announcements */
