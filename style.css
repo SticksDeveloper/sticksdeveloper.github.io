@@ -87,3 +87,7 @@ footer {
 main {
     margin-right: 25%; /* Match the width of the announcements */
 }
+
+body {
+    background-color: #f2f2f2;
+}
