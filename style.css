@@ -64,7 +64,7 @@ footer {
 
 /* New section for announcements */
 .announcements {
-    background-color: #f2f2f2; /* Light gray background */
+    background-color: #808080; /* Light gray background */
     padding: 20px;
     width: calc(25% - 40px); /* Adjust width and padding */
     position: absolute;
