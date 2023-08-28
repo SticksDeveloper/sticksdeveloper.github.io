@@ -58,16 +58,9 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
-    
+    position: relative; /* Add this */
+    z-index: 1; /* Add this */
 }
-
-/* Reset and other styles... */
-
-/* Header and nav styles... */
-
-/* Hero section styles... */
-
-/* Footer styles... */
 
 /* New section for announcements */
 .announcements {
@@ -75,9 +68,8 @@ footer {
     padding: 20px;
     width: calc(25% - 40px); /* Adjust width and padding */
     position: absolute;
-    top: 60px; /* Adjust the top value */
+    top: calc(100% + 20px); /* Adjust the top value */
     right: 0;
-    bottom: 60px; /* Adjust the bottom value */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
