@@ -58,19 +58,30 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
+    
 }
 
+/* Reset and other styles... */
+
+/* Header and nav styles... */
+
+/* Hero section styles... */
+
+/* Footer styles... */
+
+/* New section for announcements */
 .announcements {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Light gray background */
     padding: 20px;
-    width: 25%; /* Adjust the width as needed */
-    position: fixed;
-    top: 0;
+    width: calc(25% - 40px); /* Adjust width and padding */
+    position: absolute;
+    top: 60px; /* Adjust the top value */
     right: 0;
-    height: 100%; /* Make it take the full height */
+    bottom: 60px; /* Adjust the bottom value */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
 }
 
 .announcements h3 {
@@ -85,7 +96,7 @@ footer {
 
 /* Adjust main content to make space for announcements */
 main {
-    margin-right: 25%; /* Match the width of the announcements */
+    margin-right: calc(25% + 20px); /* Match the width of the announcements */
 }
 
 body {
