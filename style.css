@@ -36,34 +36,22 @@ header h1 {
     color: #333;
 }
 
-.buttons-section {
+.main-content {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.buttons-section,
+.announcements {
+    flex: 1; /* Distribute available space equally */
     padding: 20px;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    margin-right: 40px; /* Adjust spacing as needed */
-}
-
-.top-button,
-.bottom-button {
-    display: block;
-    padding: 40px 80px;
-    background-color: #f9f9f9;
-    color: #333;
-    text-decoration: none;
-    margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .announcements {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adding shadow behind announcements */
-    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
-    margin-top: 20px;
+    margin-right: 20px; /* Add spacing between sections */
 }
 
 .announcement-box h2 {
@@ -74,6 +62,21 @@ header h1 {
 .announcement-box p {
     font-size: 16px;
     color: #666;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-button,
+.bottom-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
 }
 
 .footer {
