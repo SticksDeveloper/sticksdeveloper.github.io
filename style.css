@@ -45,7 +45,6 @@ header h1 {
 .buttons-section {
     flex: 1; /* Distribute available space equally */
     padding: 20px;
-    position: fixed;
     box-sizing: border-box;
 }
 
