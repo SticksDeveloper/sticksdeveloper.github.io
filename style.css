@@ -45,13 +45,14 @@ header h1 {
 .buttons-section {
     flex: 1; /* Distribute available space equally */
     padding: 20px;
+    position: fixed;
     box-sizing: border-box;
 }
 
 .announcements {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
-    margin-left: 90px; /* Add spacing between sections */
+    margin-left: 125px; /* Add spacing between sections */
 }
 
 .announcement-box h2 {
