@@ -73,8 +73,9 @@ header {
 .footer {
     text-align: center;
     background-color: #3e4149;
+    color: #ffffff;
     padding: 10px 0;
-    position: bottom;
+    position: fixed; /* Change this to fixed */
     bottom: 0;
     width: 100%;
 }
