@@ -72,9 +72,9 @@ header {
 
 .footer {
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #3e4149;
     padding: 10px 0;
-    position: absolute;
+    position: bottom;
     bottom: 0;
     width: 100%;
 }
