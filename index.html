@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lemony - Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS stylesheet -->
+    <title>Lemony</title>
 </head>
 <body>
     <header>
-        <h1>Lemony</h1>
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Products</a></li>
@@ -18,20 +17,27 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="hero">
-            <h2>Welcome to Lemony</h2>
-            <p>Your source for all things lemony!</p>
+
+    <main class="main-content">
+        <section class="buttons-section">
+            <div class="button-container">
+                <a href="#" class="top-button">Minecraft</a>
+                <a href="#" class="bottom-button">FiveM</a>
+            </div>
         </section>
+
+        <section class="announcements">
+            <div class="announcement-box">
+                <h2>Announcements</h2>
+                <p>Welcome to Lemony! Check out our latest news and updates.</p>
+            </div>
+        </section>
+
+        <!-- Your main content goes here -->
     </main>
-    <div class="container">
-        <div class="announcements">
-            <h3>Announcements</h3>
-            <p>Check out our latest lemony products!</p>
-        </div>
-        <footer>
-            <p>&copy; 2023 Lemony. All rights reserved.</p>
-        </footer>
-    </div>
+
+    <footer>
+        <p>&copy; 2023 Lemony</p>
+    </footer>
 </body>
 </html>
