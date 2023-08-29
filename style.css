@@ -74,6 +74,9 @@ header {
     text-align: center;
     background-color: #f9f9f9;
     padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Add more styles for main content and footer as needed */
+/* Add more styles for main content as needed */
