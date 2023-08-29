@@ -51,7 +51,7 @@ header h1 {
 .announcements {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
-    margin-left: 20px; /* Add spacing between sections */
+    margin-left: 90px; /* Add spacing between sections */
 }
 
 .announcement-box h2 {
