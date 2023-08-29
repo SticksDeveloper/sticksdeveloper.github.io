@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS stylesheet -->
-    <title>Lemony</title>
+    <title>Lemony Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Lemony</h1>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Forums</a></li>
-                <li><a href="https://discord.gg/lemony">Discord</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Store</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <img src="logo.png"></img>
+            <nav>
+                <ul class="menu">
+    <li class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="#">Thing</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+        </div>
+    </li>
+    <li><button class="menu-button">Leaderboard</button></li>
+    <li><button class="menu-button">Info</button></li>
+    <li><button class="store-button"><a href="https://lemony.tebex.io/">Store</a></button></li>
+    </ul>
+            </nav>
+        </div>
     </header>
-
-    <main class="main-content">
-        <section class="buttons-section">
-            <div class="button-container">
-                <a href="#" class="top-button">Minecraft</a>
-                <a href="#" class="bottom-button">FiveM</a>
+    <section class="announcements-section">
+        <li>
+            <div class="dropdown"><button class="dropbtn"><img src="fivem.png" style="width: 55vw; min-width: 330px;"></img></button>
+            <div class="dropdown-content">
+                <a href="#">Fivem Server</a>
+                <a href="#FMInfo">Info</a>
+                <a href="#FMInfoJoin">How to Join</a>
+            </div></div>
+            <div class=dropdown><button class="dropbtn"><img src="minecraft.png" style="width: 55vw; min-width: 330px;"></img></button>
+            <div class="dropdown-content">
+                <a href="#">Minecraft Server</a>
+                <a href="#MCInfo">Info</a>
+                <a href="#MCInfoJoin">How to Join</a>
+            </div></div>
+        </li>
+        <div class="announcements-container">
+            <div class="announcement">
+                <h1>Announcement: Lemonys.Club</h1>
+                <p>Minecraft Server Released</p>
+                <p>Server ip: Lemonys.club</p>
+                <p>join now!</p>
+                /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                <h1>Announcement: Lemony RP Server</h1>
+                <p>Lemony RP has Released</p>
+                <p>join by going on fivem and searching "Lemony RP"</p>
+                <p>join now!</p>
             </div>
-        </section>
-            
-        <section class="announcements">
-            <div class="announcement-box">
-                <h2>Announcements</h2>
-                <p>Welcome to Lemony! Check out our latest news and updates.</p>
-            </div>
-        </section>
-        <!-- Your main content goes here -->
-    </main>
-    <footer class="footer">
-        <p>&copy; 2023 Lemony</p>
-    </footer>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>

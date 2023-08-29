@@ -1,92 +1,134 @@
-/* Reset some default browser styles */
-body, h1, h2, h3, p, ul, li {
+body {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
-body {
-    background-color: #f4f4f4; /* Light gray background for the whole page */
-}
-
-header {
+.header-container {
+    background-color: gray; /* Normal gray background */
+    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.2);
+    color: white; /* Text color for better contrast */
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
     align-items: center;
-    background-color: #f9f9f9;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-header h1 {
-    font-size: 28px;
-    color: #333;
-}
-
-.nav-list {
+.menu {
     list-style: none;
     display: flex;
+    gap: 20px;
 }
 
-.nav-list li {
-    margin-right: 20px;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.nav-list li a {
-    text-decoration: none;
-    color: #333;
-}
-
-.main-content {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.announcements,
-.buttons-section {
-    flex: 1; /* Distribute available space equally */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.announcements {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    margin-left: 125px; /* Add spacing between sections */
-}
-
-.announcement-box h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.announcement-box p {
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    padding: 8px 10px;
     font-size: 16px;
-    color: #666;
+    cursor: pointer;
+    color: white;
+    text-decoration: none; /* Remove underline */
 }
 
-.button-container {
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear;
+    visibility: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.6s; /* Add a slight delay for smoother appearance */
+}
+
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555; /* Slightly darker on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 10px;
+}
+
+.store-button {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    color: white; /* Button text color is white */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.announcements-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.announcements-container {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
-.top-button,
-.bottom-button {
-    display: block;
-    padding: 40px 80px;
-    background-color: #f9f9f9;
-    color: #333;
-    text-decoration: none;
-    margin-bottom: 10px;
+.announcement {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background-color: lightgray;
 }
 
-.footer {
-    text-align: center;
-    background-color: #333;
-    padding: 20px;
-    color: white;
-    position: fixed; /* Change this to fixed */
-    bottom: 0;
-    width: 100%;
+.game-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Add more styles for main content as needed */
+.game-button {
+    padding: 90px 250px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: white; /* Button background is white */
+    color: black; /* Button text color is white */
+    font-size: 70px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.game-button:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+    transform: scale(1.1);
+}
