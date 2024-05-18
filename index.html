@@ -1,61 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemony Page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site - 12</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 50%, black 100%), url('image3.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 15px;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 5px;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: white;
+      color: black;
+    }
+
+    .content {
+      padding-top: 80px;
+    }
+
+    .content section {
+      padding: 20px;
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .footer {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .rules,
+    .roles,
+    .info,
+    .changelogs,
+    .home {
+      background-size: cover;
+      background-blend-mode: darken;
+    }
+
+    .rules {
+      background-image: url('image4.png');
+    }
+
+    .roles {
+      background-image: url('image3.jpg');
+    }
+
+    .info {
+      background-image: url('image5.png');
+    }
+
+    .changelogs {
+      background-image: url('image6.png');
+    }
+
+    .home {
+      background-image: url('herewego.jpg');
+    }
+
+    h2,
+    h1 {
+      color: #FFD700;
+      /* Gold color for headings */
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <img src="logo.png"></img>
-            <nav>
-                <ul class="menu">
-    <li class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-            <a href="#">Thing</a>
-            <a href="#">Item 2</a>
-            <a href="#">Item 3</a>
-        </div>
-    </li>
-    <li><button class="menu-button">Leaderboard</button></li>
-    <li><button class="menu-button">Info</button></li>
-    <li><button class="store-button"><a href="https://lemony.tebex.io/">Store</a></button></li>
-    </ul>
-            </nav>
-        </div>
-    </header>
-    <section class="announcements-section">
-        <li>
-            <div class="dropdown"><button class="dropbtn"><img src="fivem.png" style="width: 55vw; min-width: 330px;"></img></button>
-            <div class="dropdown-content">
-                <a href="#">Fivem Server</a>
-                <a href="#FMInfo">Info</a>
-                <a href="#FMInfoJoin">How to Join</a>
-            </div></div>
-            <div class=dropdown><button class="dropbtn"><img src="minecraft.png" style="width: 55vw; min-width: 330px;"></img></button>
-            <div class="dropdown-content">
-                <a href="#">Minecraft Server</a>
-                <a href="#MCInfo">Info</a>
-                <a href="#MCInfoJoin">How to Join</a>
-            </div></div>
-        </li>
-        <div class="announcements-container">
-            <div class="announcement">
-                <h1>Announcement: Lemonys.Club</h1>
-                <p>Minecraft Server Released</p>
-                <p>Server ip: Lemonys.club</p>
-                <p>join now!</p>
-                /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-                <h1>Announcement: Lemony RP Server</h1>
-                <p>Lemony RP has Released</p>
-                <p>join by going on fivem and searching "Lemony RP"</p>
-                <p>join now!</p>
-            </div>
-        </div>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#rules">Rules</a>
+    <a href="#roles">Roles</a>
+    <a href="#info">Info</a>
+    <a href="#changelogs">Change Logs</a>
+  </div>
+  <div class="content">
+    <section id="home" class="home">
+      <h2>Current Staff</h2>
+      <h2>Owners</h2>
+      <p>• SkevandCodiene</p>
+      <p>• Sl1ck</p>
+      <p>• Overkill</p>
+      <p>• Casherzz</p>
+      <h2>Site Administration Board (Admin)</h2>
+      <p>• Fadetrimmer</p>
+      <p>• RoyalMintz</p>
+      <h2>Internal Affairs (Admin)</h2>
+      <p>• Hopeful</p>
+      <p>• N1ghtm4re</p>
+      <p>• Ecydisis</p>
+      <h2>ISD Agent (Hosters)</h2>
+      <p>• Coke Guzzler</p>
+      <p>• Sylkx</p>
+      <p>• Womp</p>
+      <p>• VisLuke</p>
+      <p>• Virgil</p>
+      <p>• Stick</p>
+      <p>• BurningEmber</p>
+      <p>• CuppaJoe</p>
+      <p>• PhoneyCyka</p>
+      <p>• TheFlyingCyclops</p>
+      <p>• SapperSoul</p>
+      <h2>ISD Trainee Agent (Hoster in training)</h2>
+      <p>• SALT-T</p>
+      <p>• TheOldArchitect</p>
+      <p>• Dubf</p>
+      <p>• TheNutDealer</p>
+      <p>• MasterPigZombie (Stock)</p>
+      <h2>Raisa (Moderators)</h2>
+      <p>• Postal</p>
+      <p>• Fadedstories</p>
+      <p>• Chaotic Club</p>
+      <p>• Soda</p>
+      <p>• Junkmail</p>
+      <p>• PG</p>
+      <p>• Escalad</p>
     </section>
-    <script src="script.js"></script>
+    <section id="rules" class="rules">
+      <h2>General Rules</h2>
+      <p>• Using cheats or disruptive in-game exploits is strictly prohibited.</p>
+      <p>• NO SOUNDBOARDS IN RP. The only exception is a hoster gives permission, in which case the soundboard must make
+        sense. Soundboards should be kept to a minimum outside of RP as well.</p>
+      <p>• Racism, homophobia, or any sort of hateful language is strictly prohibited.</p>
+      <p>• Stay in character as much as possible, and notify others when you are not. If you have no intent to roleplay,
+        this is not the server for you.</p>
+      <p>• Be respectful out of character, only be rude in character if the situation calls for it.</p>
+      <p>• Remember to FEARRP; Value your life and be afraid of your character's death!</p>
+      <p>• Do not mention OOC (Out of Character) knowledge! If your character wouldn't know something, then you
+        shouldn't be acting like you do. When you die, you are a new character, so don't mention your past lives.</p>
+      <p>• Obey chain of command! Blatant disobedience when in threat of harm or punishment is unrealistic. If following
+        orders requires you to break the rules, the person who ordered you will be punished.</p>
+      <p>• Follow the guidelines and rules for your specific role listed below. These may be ignored if you have a good
+        enough reason and roleplay it well.</p>
+      <p>• Harassing hosters or other players, or generally being a nuisance to the server will result in punishment.
+      </p>
+    </section>
+    <section id="roles" class="roles">
+      <h1>Human Roles</h1>
+      <h2>Mobile Task Force Members:</h2>
+      <p>• Do not need to openly FearRP, but must still value their lives.</p>
+      <p>• Take a SLOW AND STEADY approach to clearing out the facility. DO NOT RUN STRAIGHT INTO DANGER LIKE AN IDIOT,
+        PLAY AS A SPECIAL FORCES SOLDIER WOULD AND CLEAR ROOMS BIT BY BIT.</p>
+      <p>• Must NEVER use any SCP items. No matter the situation, unless cleared by the Main Hoster.</p>
+      <p>• Must not waste ammunition by graffitiing walls or shooting into the ceiling/sky.</p>
+      <p>• May kill uncuffed and alone Class-D on sight, armed or not. Note: this may result in the death of a Janitor,
+        which will not fall onto the fault of the MTF who killed them as chances are not to be taken. If a Janitor wants
+        to survive they should stick by other personnel.</p>
+      <p>• Must not engage in conversation with researchers or other personnel that are not part of security. They must
+        always prioritize their task first, even if that means giving people the cold shoulder.</p>
+      <p>• Are to call out usage of a grenade before throwing one.</p>
+      <p>• Are not to Terminate SCPs unless they have full knowledge of a greenlight in place.</p>
+      <p>• Must never endanger research personnel. This includes shooting past them down a hall, aiming at them, or
+        shooting through them to kill someone/something else.</p>
+      <p>NOTE: Act professionally. Do not rush forward all gun-ho like there won't be any consequences and keep it
+        quiet. Split off into small groups and clear rooms while slow-walking. Encourage others to do the same. Play it
+        like a Mil-Sim.</p>
+      <p>NOTE 2: More 'elite' Mobile Task Force units (i.e Red Right Hand) may have termination rights for even the
+        smallest discrepancies researchers or Security personnel may make, such as approaching when warned not to near
+        them. Obviously, do not abuse these rights, you can be reported if it's unfair TK.</p>
+      <h2>Chaos Insurgency Members:</h2>
+      <p>• Kill all foundation personnel on sight, including Class-D (if they feel that it is necessary).</p>
+      <p>• Are to avoid surrender and mostly die for their cause.</p>
+      <p>• Abuse and destroy as much of the foundation as possible.</p>
+      <p>• Not be allowed to team kill.</p>
+      <p>NOTE: The CI aren't required to clear out rooms slowly and tactically but it is still heavily suggested. CI are
+        still special forces, but it is not required.</p>
+      <h2>Research Personnel:</h2>
+      <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most
+        likely result a FailRP offense.</p>
+      <p>• Are required to listen to Senior Researchers/Supervisors no matter what. If you feel that their order was
+        against RP or under FailRP rules, report them.</p>
+      <p>• In need of Class-D for a test, are to request a guard to verify and accompany you. That being said, DO NOT
+        TAKE CLASS-D FROM THEIR CELLS WITHOUT GUARDS PRESENT.</p>
+      <p>• Are NOT to carry any sort of firearm without a gun license. Doing so will result in arrest and the revoking
+        of your security clearance card for a time.</p>
+      <p>• Are NOT to pick up guns during a breach and attempt to help Mobile Task Force or guards. The main priority of
+        all researchers is to escape the facility/hide from threats.</p>
+      <p>• Are NOT to loot emergency medical supply boxes found on walls or any of the lockers. You should treat those
+        static objects with real-world value.</p>
+      <p>NOTE: Foundation personnel may not act as undercover CI spies unless given express permission by the Main
+        Hoster.</p>
+      <h2>Class-D Personnel:</h2>
+      <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most
+        likely result a FailRP offense.</p>
+      <p>• Most likely, a Class-D won't know anything about the facility prior to the round, so please do not meta-game
+        and act like you know everything about the facility. However, if you RP that you are an experienced class-d who
+        has been around for awhile, you may bypass this rule depending on how well you RP it.</p>
+      <p>• Do not constantly yell or scream from within your cell. It is annoying for the people around you and can be
+        counted as mic spam. No more "let me out! Let me out!" please.</p>
+      <p>• Do not listen to a Researcher/Scientist unless permitted to by a guard. i.e: A Scientist opens up your cell
+        door and asks you to step out, with no guard present or no guard allowing it.</p>
+      <p>• Do not purposefully be a nuisance and only act realistically in a situation. This means door cheesing out of
+        a cell when told to get in. If you are acting out enough with behavior such as that or Bunny Hopping around a
+        bunch then you can be reported for FailRP.</p>
+      <p>NOTE: Class-D May be shot on sight ONLY BY MOBILE TASK FORCE If undetained. Even if you have no gun, not being
+        near facility personnel is a risk you take during a breach of security.</p>
+      <h2>Security Personnel:</h2>
+      <p>• Are to practice some FearRP. You were trained highly for your position at the SCP Foundation but you can
+        still be frightened.</p>
+      <p>• Are NOT to shoot walls and waste ammo. With this, graffitiing walls pre-round or during rp will result in a
+        ban.</p>
+      <p>• Are to terminate Class-D on sight ONLY when in threat of danger from a confirmed to be armed Class-D.</p>
+      <p>• Are to warn any personnel at risk of termination, clearly and at least twice, before terminating the subject.
+      </p>
+      <p>• Are to ask All researchers that have been seen brandishing a weapon if they have a gun license. If not, they
+        are to hand over their weapon. If the researcher does have a gun license, the guard must relay the name of the
+        researcher and confirm their license on the radio.</p>
+      <p>• Must not let researchers enter CDC (Class-D Cells) without permission.</p>
+      <p>• Are NOT to crowd testing procedures. Went to a test you really wanted to be present at but there were too
+        many guards there already? Too bad! Be the bigger man and go on patrol elsewhere.</p>
+      <p>• Are to stay at their assigned post no matter what, unless a serious situation needs assistance and no one
+        else can assist.</p>
+      <p>• Must never aim or antagonize any Facility Personnel.</p>
+      <p>• Must NEVER misuse flash grenades, doing so will result in an immediate ban. Also, always call out that you
+        will be throwing one to your teammates, or in more stealthy situations, ensure that surrounding teammates know
+        before its thrown.</p>
+      <p>NOTE: It goes without saying that all guards must obey the orders of higher ranking personnel. If you feel that
+        they have made an unjust order that goes against RP, report them.</p>
+      <h1>SCP Roles</h1>
+      <p>• SCP Roles will only be given out to those who understand how to play them. Check out the how to play SCP
+        category for a set of rules and recontainment procedures</p>
+    </section>
+    <section id="info" class="info">
+      <h2>Info</h2>
+      <p>Informational content here.</p>
+    </section>
+    <section id="changelogs" class="changelogs">
+      <h2>Change Logs</h2>
+      <p>Update logs here.</p>
+    </section>
+  </div>
+  <div class="footer">
+    <p>Site - 12 Roleplay, Join our Discord server here: discordlink</p>
+    <p>Staff Positions are Volunteer only.</p>
+  </div>
 </body>
+
 </html>
