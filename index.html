@@ -1,655 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Site - 12</title>
   <style>
-    body {
+    body,
+    html {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #87CEEB;
-      overflow: hidden;
-    }
-    .container {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      display: flex;
-      overflow: hidden;
-      width: 80%;
-      max-width: 1200px;
-      height: 80%;
-      max-height: 800px;
-      padding: 20px;
-      box-sizing: border-box;
-      position: relative;
-      animation: fadeInContainer 1s ease-in-out forwards;
-    }
-    @keyframes fadeInContainer {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    .sidebar {
-      width: 250px;
-      background: #1E90FF;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 50%, black 100%), url('image3.jpg') no-repeat center center;
+      background-size: cover;
       color: white;
-      padding: 1em;
-      border-radius: 10px 0 0 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow-y: auto;
-      animation: slideInSidebar 1s ease-in-out forwards;
     }
-    @keyframes slideInSidebar {
-      from {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    .sidebar select {
+
+    .navbar {
+      position: fixed;
       width: 100%;
-      padding: 0.75em 1em;
-      border-radius: 5px;
-      border: none;
-      font-size: 1em;
-      background-color: white;
-      color: black;
-      transition: background-color 0.3s, color 0.3s;
-      flex-grow: 1;
-      margin-bottom: 1em;
-      animation: fadeInSelect 1s ease-in-out forwards;
-    }
-    @keyframes fadeInSelect {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .sidebar select option {
-      padding: 0.5em;
-    }
-    .sidebar select option:hover {
-      background-color: #1C86EE;
-      color: white;
-    }
-    .sidebar button {
-      width: 100%;
-      padding: 0.75em 1em;
-      border: none;
-      border-radius: 5px;
-      margin-top: 0.5em;
-      background: #1C86EE;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .sidebar button:hover {
-      background: #1A78D7;
-    }
-    .content {
-      flex: 1;
-      padding: 2em;
-      display: flex;
-      flex-direction: column;
-      background: white;
-      border-radius: 0 10px 10px 0;
-      overflow-y: auto;
-      animation: fadeInContent 1s ease-in-out forwards;
-    }
-    @keyframes fadeInContent {
-      from {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    .tabs {
-      display: flex;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1em;
-      margin-bottom: 1em;
-      animation: fadeInTabs 1s ease-in-out forwards;
-    }
-    @keyframes fadeInTabs {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .tabs button {
-      flex: 1;
-      padding: 1em;
-      border: none;
-      background: #f0f2f5;
-      cursor: pointer;
-      transition: background 0.3s;
-      border-radius: 10px 10px 0 0;
-      display: none; /* Hidden by default */
-    }
-    .tabs button:hover, .tabs button.active {
-      background: #e0e0e0;
-    }
-    .tabs button.always-visible {
-      display: block; /* Always visible tabs */
-    }
-    .tab-content {
-      flex: 1;
-      padding: 2em;
-      background: white;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: none;
-      overflow-y: auto;
-      animation: fadeInTabContent 1s ease-in-out forwards;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTabContent {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .sub-tabs {
-      display: flex;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1em;
-      margin-bottom: 1em;
-      animation: fadeInSubTabs 1s ease-in-out forwards;
-    }
-    @keyframes fadeInSubTabs {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .sub-tabs button {
-      flex: 1;
-      padding: 1em;
-      border: none;
-      background: #f0f2f5;
-      cursor: pointer;
-      transition: background 0.3s;
-      border-radius: 10px 10px 0 0;
-    }
-    .sub-tabs button:hover, .sub-tabs button.active {
-      background: #e0e0e0;
-    }
-    .sub-tab-content {
-      display: none;
-      animation: fadeInSubTabContent 1s ease-in-out forwards;
-    }
-    .sub-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInSubTabContent {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .tutorial-overlay {
-      position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
       color: white;
-      font-size: 1.2em;
-      padding: 2em;
-      box-sizing: border-box;
-      z-index: 10;
-      text-align: center;
-      animation: fadeInTutorial 1s ease-in-out forwards;
-    }
-    @keyframes fadeInTutorial {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .tutorial-overlay button {
-      margin-top: 1em;
-      padding: 0.5em 1em;
-      border: none;
-      background: #1E90FF;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .tutorial-overlay button:hover {
-      background: #1C86EE;
-    }
-    .form-group {
-      margin-bottom: 1em;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5em;
+      font-size: 16px;
       font-weight: bold;
-    }
-    .form-group select, .form-group input {
-      width: 100%;
-      padding: 0.5em;
+      margin: 0 15px;
+      padding: 10px 20px;
+      border: 2px solid white;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      transition: color 0.3s, background-color 0.3s;
     }
-    .form-group input[type="checkbox"] {
-      width: auto;
-      display: inline-block;
-      margin-left: 0.5em;
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: white;
+      color: black;
     }
-    .form-group button {
-      padding: 0.75em 1em;
-      border: none;
-      border-radius: 5px;
-      background: #1C86EE;
+
+    .content {
+      padding-top: 80px;
+    }
+
+    .content section {
+      padding: 20px;
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
       color: white;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 1em;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
     }
-    .form-group button:hover {
-      background: #1A78D7;
+
+    .footer {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
     }
-    .form-group .xyz-coordinates, .form-group .keycard-details {
-      display: none;
-      margin-top: 1em;
+
+    .footer p {
+      margin: 0;
     }
-    .form-group .xyz-coordinates input, .form-group .keycard-details input {
-      width: calc(33.333% - 1em);
-      margin-right: 1em;
-      display: inline-block;
+
+    .rules,
+    .roles,
+    .info,
+    .changelogs,
+    .home {
+      background-size: cover;
+      background-blend-mode: darken;
     }
-    .form-group .xyz-coordinates input:last-child, .form-group .keycard-details input:last-child {
-      margin-right: 0;
+
+    .rules {
+      background-image: url('image4.png');
+    }
+
+    .roles {
+      background-image: url('image3.jpg');
+    }
+
+    .info {
+      background-image: url('image5.png');
+    }
+
+    .changelogs {
+      background-image: url('image6.png');
+    }
+
+    .home {
+      background-image: url('herewego.jpg');
+    }
+
+    h2,
+    h1 {
+      color: #FFD700;
+      /* Gold color for headings */
     }
   </style>
 </head>
+
 <body>
-<div class="container">
-  <div class="sidebar">
-    <h2>Remote Admin Extended</h2>
-    <select id="player-select" size="20" multiple onchange="togglePlayerTabs()">
-      <option>No Players</option>
-    </select>
-    <button onclick="selectAllPlayers()">Select All</button>
-    <button onclick="unselectAllPlayers()">Unselect All</button>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#rules">Rules</a>
+    <a href="#roles">Roles</a>
+    <a href="#info">Info</a>
+    <a href="#changelogs">Change Logs</a>
   </div>
   <div class="content">
-    <div class="tabs">
-      <button class="player-tab" onclick="showTab(event, 'tab-player')" style="display:none;">Player</button>
-      <button class="always-visible active" onclick="showTab(event, 'tab-administration')">Administration</button>
-      <button class="always-visible" onclick="showTab(event, 'tab-map-control')">Map Control</button>
-      <button class="always-visible" onclick="showTab(event, 'tab-patreon-features')">Patreon Features</button>
-      <button class="player-only" onclick="showTab(event, 'tab-roleplay')">Roleplay</button>
-    </div>
-    <div id="tab-player" class="tab-content">
-      <h2>Player</h2>
-      <div class="sub-tabs">
-        <button class="active" onclick="showSubTab(event, 'sub-tab-info')">Info</button>
-        <button onclick="showSubTab(event, 'sub-tab-role-management')">Role Management</button>
-        <button onclick="showSubTab(event, 'sub-tab-inventory')">Inventory</button>
-      </div>
-      <div id="sub-tab-info" class="sub-tab-content active">
-        <div class="form-group">
-          <label for="customi-input">CustomI:</label>
-          <input type="text" id="customi-input" placeholder="Enter CustomI">
-        </div>
-      </div>
-      <div id="sub-tab-role-management" class="sub-tab-content">
-        <div class="form-group">
-          <label for="role-type">Role Type:</label>
-          <select id="role-type">
-            <option value="ClassD">ClassD</option>
-            <option value="Scientist">Scientist</option>
-            <option value="Guard">Guard</option>
-            <option value="SCP">SCP</option>
-            <option value="Tutorial">Tutorial</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="spawn-locations">Spawn Locations:</label>
-          <select id="spawn-locations" onchange="toggleXYZFields()">
-            <option value="LightContainment" selected>Light Containment</option>
-            <option value="HeavyContainment">Heavy Containment</option>
-            <option value="EntranceZone">Entrance Zone</option>
-            <option value="Surface">Surface</option>
-            <option value="Custom">Custom</option>
-          </select>
-        </div>
-        <div class="form-group xyz-coordinates" id="xyz-coordinates">
-          <label for="x-coordinate">X:</label>
-          <input type="number" id="x-coordinate" placeholder="X">
-          <label for="y-coordinate">Y:</label>
-          <input type="number" id="y-coordinate" placeholder="Y">
-          <label for="z-coordinate">Z:</label>
-          <input type="number" id="z-coordinate" placeholder="Z">
-        </div>
-        <div class="form-group">
-          <label for="is-cuffed">Is Cuffed:</label>
-          <input type="checkbox" id="is-cuffed">
-        </div>
-        <div class="form-group">
-          <button onclick="setRole()">Set Role</button>
-        </div>
-      </div>
-      <div id="sub-tab-inventory" class="sub-tab-content">
-        <div class="form-group">
-          <label for="inventory">Inventory:</label>
-          <select id="inventory">
-            <option value="Default">Default</option>
-            <option value="BaseItems">Base Items</option>
-            <option value="None">None</option>
-            <option value="UseInventoryManagement">Use InventoryManagement</option>
-          </select>
-        </div>
-        <div class="form-group keycard-details" id="keycard-details">
-          <label for="keycard-name">Keycard Name:</label>
-          <input type="text" id="keycard-name" placeholder="Keycard Name (default is player's name)">
-          <label for="keycard-position">Keycard Position:</label>
-          <input type="text" id="keycard-position" placeholder="Position">
-          <label for="keycard-permissions">Keycard Permissions:</label>
-          <select id="keycard-permissions" multiple>
-            <option value="None">None</option>
-            <option value="Low Level Containment">Low Level Containment</option>
-            <option value="Medium Level Containment">Medium Level Containment</option>
-            <option value="High Level Containment">High Level Containment</option>
-            <option value="Security 1">Security 1</option>
-            <option value="Security 2">Security 2</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Checkpoint Access">Checkpoint Access</option>
-            <option value="Gate Access">Gate Access</option>
-            <option value="Administration">Administration</option>
-            <option value="High Administration">High Administration</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div id="tab-roleplay" class="tab-content">
-      <h2>Roleplay</h2>
-      <p>Content for roleplay goes here.</p>
-    </div>
-    <div id="tab-administration" class="tab-content active">
-      <h2>Administration</h2>
-      <p>Content for administration goes here.</p>
-    </div>
-    <div id="tab-map-control" class="tab-content">
-      <h2>Map Control</h2>
-      <p>Content for map control goes here.</p>
-    </div>
-    <div id="tab-inventory-management" class="tab-content">
-      <h2>Inventory Management</h2>
-      <p>Content for inventory management goes here.</p>
-    </div>
-    <div id="tab-patreon-features" class="tab-content">
-      <h2>Patreon Features</h2>
-      <p>Content for patreon features goes here.</p>
-    </div>
+    <section id="home" class="home">
+      <h2>Current Staff</h2>
+      <h2>Owners</h2>
+      <p>• SkevandCodiene</p>
+      <p>• Sl1ck</p>
+      <p>• Overkill</p>
+      <p>• Casherzz</p>
+      <h2>Site Administration Board (Admin)</h2>
+      <p>• Fadetrimmer</p>
+      <p>• RoyalMintz</p>
+      <h2>Internal Affairs (Admin)</h2>
+      <p>• Hopeful</p>
+      <p>• N1ghtm4re</p>
+      <p>• Ecydisis</p>
+      <h2>ISD Agent (Hosters)</h2>
+      <p>• Coke Guzzler</p>
+      <p>• Sylkx</p>
+      <p>• Womp</p>
+      <p>• VisLuke</p>
+      <p>• Virgil</p>
+      <p>• Stick</p>
+      <p>• BurningEmber</p>
+      <p>• CuppaJoe</p>
+      <p>• PhoneyCyka</p>
+      <p>• TheFlyingCyclops</p>
+      <p>• SapperSoul</p>
+      <h2>ISD Trainee Agent (Hoster in training)</h2>
+      <p>• SALT-T</p>
+      <p>• TheOldArchitect</p>
+      <p>• Dubf</p>
+      <p>• TheNutDealer</p>
+      <p>• MasterPigZombie (Stock)</p>
+      <h2>Raisa (Moderators)</h2>
+      <p>• Postal</p>
+      <p>• Fadedstories</p>
+      <p>• Chaotic Club</p>
+      <p>• Soda</p>
+      <p>• Junkmail</p>
+      <p>• PG</p>
+      <p>• Escalad</p>
+    </section>
+    <section id="rules" class="rules">
+      <h2>General Rules</h2>
+      <p>• Using cheats or disruptive in-game exploits is strictly prohibited.</p>
+      <p>• NO SOUNDBOARDS IN RP. The only exception is a hoster gives permission, in which case the soundboard must make
+        sense. Soundboards should be kept to a minimum outside of RP as well.</p>
+      <p>• Racism, homophobia, or any sort of hateful language is strictly prohibited.</p>
+      <p>• Stay in character as much as possible, and notify others when you are not. If you have no intent to roleplay,
+        this is not the server for you.</p>
+      <p>• Be respectful out of character, only be rude in character if the situation calls for it.</p>
+      <p>• Remember to FEARRP; Value your life and be afraid of your character's death!</p>
+      <p>• Do not mention OOC (Out of Character) knowledge! If your character wouldn't know something, then you
+        shouldn't be acting like you do. When you die, you are a new character, so don't mention your past lives.</p>
+      <p>• Obey chain of command! Blatant disobedience when in threat of harm or punishment is unrealistic. If following
+        orders requires you to break the rules, the person who ordered you will be punished.</p>
+      <p>• Follow the guidelines and rules for your specific role listed below. These may be ignored if you have a good
+        enough reason and roleplay it well.</p>
+      <p>• Harassing hosters or other players, or generally being a nuisance to the server will result in punishment.
+      </p>
+    </section>
+    <section id="roles" class="roles">
+      <h1>Human Roles</h1>
+      <h2>Mobile Task Force Members:</h2>
+      <p>• Do not need to openly FearRP, but must still value their lives.</p>
+      <p>• Take a SLOW AND STEADY approach to clearing out the facility. DO NOT RUN STRAIGHT INTO DANGER LIKE AN IDIOT,
+        PLAY AS A SPECIAL FORCES SOLDIER WOULD AND CLEAR ROOMS BIT BY BIT.</p>
+      <p>• Must NEVER use any SCP items. No matter the situation, unless cleared by the Main Hoster.</p>
+      <p>• Must not waste ammunition by graffitiing walls or shooting into the ceiling/sky.</p>
+      <p>• May kill uncuffed and alone Class-D on sight, armed or not. Note: this may result in the death of a Janitor,
+        which will not fall onto the fault of the MTF who killed them as chances are not to be taken. If a Janitor wants
+        to survive they should stick by other personnel.</p>
+      <p>• Must not engage in conversation with researchers or other personnel that are not part of security. They must
+        always prioritize their task first, even if that means giving people the cold shoulder.</p>
+      <p>• Are to call out usage of a grenade before throwing one.</p>
+      <p>• Are not to Terminate SCPs unless they have full knowledge of a greenlight in place.</p>
+      <p>• Must never endanger research personnel. This includes shooting past them down a hall, aiming at them, or
+        shooting through them to kill someone/something else.</p>
+      <p>NOTE: Act professionally. Do not rush forward all gun-ho like there won't be any consequences and keep it
+        quiet. Split off into small groups and clear rooms while slow-walking. Encourage others to do the same. Play it
+        like a Mil-Sim.</p>
+      <p>NOTE 2: More 'elite' Mobile Task Force units (i.e Red Right Hand) may have termination rights for even the
+        smallest discrepancies researchers or Security personnel may make, such as approaching when warned not to near
+        them. Obviously, do not abuse these rights, you can be reported if it's unfair TK.</p>
+      <h2>Chaos Insurgency Members:</h2>
+      <p>• Kill all foundation personnel on sight, including Class-D (if they feel that it is necessary).</p>
+      <p>• Are to avoid surrender and mostly die for their cause.</p>
+      <p>• Abuse and destroy as much of the foundation as possible.</p>
+      <p>• Not be allowed to team kill.</p>
+      <p>NOTE: The CI aren't required to clear out rooms slowly and tactically but it is still heavily suggested. CI are
+        still special forces, but it is not required.</p>
+      <h2>Research Personnel:</h2>
+      <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most
+        likely result a FailRP offense.</p>
+      <p>• Are required to listen to Senior Researchers/Supervisors no matter what. If you feel that their order was
+        against RP or under FailRP rules, report them.</p>
+      <p>• In need of Class-D for a test, are to request a guard to verify and accompany you. That being said, DO NOT
+        TAKE CLASS-D FROM THEIR CELLS WITHOUT GUARDS PRESENT.</p>
+      <p>• Are NOT to carry any sort of firearm without a gun license. Doing so will result in arrest and the revoking
+        of your security clearance card for a time.</p>
+      <p>• Are NOT to pick up guns during a breach and attempt to help Mobile Task Force or guards. The main priority of
+        all researchers is to escape the facility/hide from threats.</p>
+      <p>• Are NOT to loot emergency medical supply boxes found on walls or any of the lockers. You should treat those
+        static objects with real-world value.</p>
+      <p>NOTE: Foundation personnel may not act as undercover CI spies unless given express permission by the Main
+        Hoster.</p>
+      <h2>Class-D Personnel:</h2>
+      <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most
+        likely result a FailRP offense.</p>
+      <p>• Most likely, a Class-D won't know anything about the facility prior to the round, so please do not meta-game
+        and act like you know everything about the facility. However, if you RP that you are an experienced class-d who
+        has been around for awhile, you may bypass this rule depending on how well you RP it.</p>
+      <p>• Do not constantly yell or scream from within your cell. It is annoying for the people around you and can be
+        counted as mic spam. No more "let me out! Let me out!" please.</p>
+      <p>• Do not listen to a Researcher/Scientist unless permitted to by a guard. i.e: A Scientist opens up your cell
+        door and asks you to step out, with no guard present or no guard allowing it.</p>
+      <p>• Do not purposefully be a nuisance and only act realistically in a situation. This means door cheesing out of
+        a cell when told to get in. If you are acting out enough with behavior such as that or Bunny Hopping around a
+        bunch then you can be reported for FailRP.</p>
+      <p>NOTE: Class-D May be shot on sight ONLY BY MOBILE TASK FORCE If undetained. Even if you have no gun, not being
+        near facility personnel is a risk you take during a breach of security.</p>
+      <h2>Security Personnel:</h2>
+      <p>• Are to practice some FearRP. You were trained highly for your position at the SCP Foundation but you can
+        still be frightened.</p>
+      <p>• Are NOT to shoot walls and waste ammo. With this, graffitiing walls pre-round or during rp will result in a
+        ban.</p>
+      <p>• Are to terminate Class-D on sight ONLY when in threat of danger from a confirmed to be armed Class-D.</p>
+      <p>• Are to warn any personnel at risk of termination, clearly and at least twice, before terminating the subject.
+      </p>
+      <p>• Are to ask All researchers that have been seen brandishing a weapon if they have a gun license. If not, they
+        are to hand over their weapon. If the researcher does have a gun license, the guard must relay the name of the
+        researcher and confirm their license on the radio.</p>
+      <p>• Must not let researchers enter CDC (Class-D Cells) without permission.</p>
+      <p>• Are NOT to crowd testing procedures. Went to a test you really wanted to be present at but there were too
+        many guards there already? Too bad! Be the bigger man and go on patrol elsewhere.</p>
+      <p>• Are to stay at their assigned post no matter what, unless a serious situation needs assistance and no one
+        else can assist.</p>
+      <p>• Must never aim or antagonize any Facility Personnel.</p>
+      <p>• Must NEVER misuse flash grenades, doing so will result in an immediate ban. Also, always call out that you
+        will be throwing one to your teammates, or in more stealthy situations, ensure that surrounding teammates know
+        before its thrown.</p>
+      <p>NOTE: It goes without saying that all guards must obey the orders of higher ranking personnel. If you feel that
+        they have made an unjust order that goes against RP, report them.</p>
+      <h1>SCP Roles</h1>
+      <p>• SCP Roles will only be given out to those who understand how to play them. Check out the how to play SCP
+        category for a set of rules and recontainment procedures</p>
+    </section>
+    <section id="info" class="info">
+      <h2>Info</h2>
+      <p>Information  has not been updated please await...</p>
+    </section>
+    <section id="changelogs" class="changelogs">
+      <h2>Change Logs</h2>
+      <p>Currently no Update Logs</p>
+    </section>
   </div>
-  <div class="tutorial-overlay" id="tutorial">
-    <div>
-      <h2>Welcome to the Dashboard</h2>
-      <p>Use the tabs to navigate between different sections of the dashboard. The "Players" list on the left shows the active players. Click on any player to view more details.</p>
-      <button onclick="skipTutorial()">Skip Tutorial</button>
-    </div>
+  <div class="footer">
+    <p>Site - 12 Roleplay, Join our Discord server here: <a href="https://discord.gg/site12">Discord</a></p>
+    <p>Staff Positions are Volunteer only.</p>
   </div>
-</div>
-<script>
-  function showTab(event, tabId) {
-    // Hide all tab contents
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => content.classList.remove('active'));
-
-    // Remove active class from all tab buttons
-    const tabButtons = document.querySelectorAll('.tabs button');
-    tabButtons.forEach(button => button.classList.remove('active'));
-
-    // Show the clicked tab content
-    document.getElementById(tabId).classList.add('active');
-
-    // Set the clicked tab button as active
-    event.currentTarget.classList.add('active');
-  }
-
-  function showSubTab(event, subTabId) {
-    // Hide all sub-tab contents
-    const subTabContents = document.querySelectorAll('.sub-tab-content');
-    subTabContents.forEach(content => content.classList.remove('active'));
-
-    // Remove active class from all sub-tab buttons
-    const subTabButtons = document.querySelectorAll('.sub-tabs button');
-    subTabButtons.forEach(button => button.classList.remove('active'));
-
-    // Show the clicked sub-tab content
-    document.getElementById(subTabId).classList.add('active');
-
-    // Set the clicked sub-tab button as active
-    event.currentTarget.classList.add('active');
-  }
-
-  function skipTutorial() {
-    document.getElementById('tutorial').style.display = 'none';
-  }
-
-  function selectAllPlayers() {
-    const playerSelect = document.getElementById('player-select');
-    for (let i = 0; i < playerSelect.options.length; i++) {
-      playerSelect.options[i].selected = true;
-    }
-    togglePlayerTabs();
-  }
-
-  function unselectAllPlayers() {
-    const playerSelect = document.getElementById('player-select');
-    for (let i = 0; i < playerSelect.options.length; i++) {
-      playerSelect.options[i].selected = false;
-    }
-    togglePlayerTabs();
-  }
-
-  function togglePlayerTabs() {
-    const playerSelect = document.getElementById('player-select');
-    const playerTab = document.querySelector('.player-tab');
-    const playerOnlyTabs = document.querySelectorAll('.player-only');
-
-    if (playerSelect.selectedOptions.length > 0) {
-      playerTab.style.display = 'block';
-      playerOnlyTabs.forEach(tab => tab.style.display = 'block');
-      showTab({ currentTarget: playerTab }, 'tab-player');
-    } else {
-      playerTab.style.display = 'none';
-      playerOnlyTabs.forEach(tab => tab.style.display = 'none');
-      // Switch to another tab if no player is selected and Player tab is active
-      if (document.getElementById('tab-player').classList.contains('active')) {
-        showTab({ currentTarget: document.querySelector('.tabs button.always-visible') }, 'tab-administration');
-      }
-    }
-  }
-
-  function toggleXYZFields() {
-    const spawnLocations = document.getElementById('spawn-locations');
-    const xyzCoordinates = document.getElementById('xyz-coordinates');
-
-    if (spawnLocations.value === 'Custom') {
-      xyzCoordinates.style.display = 'block';
-    } else {
-      xyzCoordinates.style.display = 'none';
-    }
-  }
-
-  async function fetchPlayers() {
-    try {
-      const response = await fetch('/data');
-      if (response.ok) {
-        const players = await response.json();
-        const select = document.getElementById('player-select');
-
-        select.innerHTML = '';
-
-        // Define colors for roles
-        const roleColors = {
-          "Scp173": "red",
-          "Scp106": "red",
-          "Scp049": "red",
-          "Scp079": "red",
-          "Scp096": "red",
-          "Scp0492": "red",
-          "Scp939": "red",
-          "Scp3114": "red",
-
-          "NtfSpecialist": "navy",
-          "NtfCaptain": "navy",
-          "NtfSergeant": "navy",
-          "NtfPrivate": "navy",
-
-          "FacilityGuard": "gray",
-
-          "ChaosConscript": "green",
-          "ChaosRifleman": "green",
-          "ChaosMarauder": "green",
-          "ChaosRepressor": "green",
-
-          "Scientist": "blue",
-
-          "ClassD": "orange",
-
-          "Tutorial": "#FF5733"
-        };
-
-        // Group players by role
-        const groupedPlayers = players.reduce((groups, player) => {
-          if (!groups[player.Role]) {
-            groups[player.Role] = [];
-          }
-          groups[player.Role].push(player);
-          return groups;
-        }, {});
-
-        // Populate with new options
-        Object.keys(groupedPlayers).forEach(role => {
-          const optgroup = document.createElement('optgroup');
-          optgroup.label = role;
-
-          groupedPlayers[role].forEach(player => {
-            const option = document.createElement('option');
-            option.value = player.Id;
-            option.text = `${player.Name}`;
-
-            // Set the color based on the role
-            const color = roleColors[role] || "black"; // Default color if role not found
-            option.style.color = color;
-
-            optgroup.appendChild(option);
-          });
-
-          select.appendChild(optgroup);
-        });
-
-        // If no players were added, show "No Players"
-        if (players.length === 0) {
-          const option = document.createElement('option');
-          option.text = "No Players";
-          option.disabled = true;
-          select.appendChild(option);
-        }
-      } else {
-        console.error('Failed to fetch players');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
-  // Fetch players when the page loads
-  window.onload = fetchPlayers;
-
-  async function setRole() {
-    const selectedPlayers = Array.from(document.getElementById('player-select').selectedOptions).map(option => option.value);
-    const roleType = document.getElementById('role-type').value;
-    const spawnLocation = document.getElementById('spawn-locations').value;
-    const isCuffed = document.getElementById('is-cuffed').checked;
-    let coordinates = {};
-
-    if (spawnLocation === 'Custom') {
-      coordinates = {
-        x: document.getElementById('x-coordinate').value,
-        y: document.getElementById('y-coordinate').value,
-        z: document.getElementById('z-coordinate').value
-      };
-    }
-
-    const data = {
-      action: 'updatePlayer',
-      players: selectedPlayers,
-      roleType: roleType,
-      spawnLocation: spawnLocation,
-      isCuffed: isCuffed,
-      coordinates: coordinates
-    };
-
-    try {
-      const response = await fetch('/data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        console.log('Role set successfully');
-        fetchPlayers(); // Refresh player list after setting role
-      } else {
-        console.error('Failed to set role');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-</script>
 </body>
+
 </html>
