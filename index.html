@@ -1,373 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site - 12</title>
+    <title>Site-12 RP Server Rules</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        body, html {
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #ff0000, #6200ea);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #FFFFFF;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
         }
 
-        .navbar {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 0 15px;
-            padding: 8px 16px;
-            border: 2px solid white;
-            border-radius: 5px;
-            transition: color 0.3s, background-color 0.3s, transform 0.3s;
-        }
-
-        .navbar a:hover,
-        .navbar a:focus {
-            background-color: #FFFFFF;
-            color: #000000;
-            transform: scale(1.1);
-        }
-
-        .content {
-            padding: 100px 20px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .content section {
+        header {
+            background-color: #333;
             padding: 20px;
-            margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        .content section:hover {
-            transform: scale(1.02);
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
             text-align: center;
-            color: #FFD700;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .footer p {
-            margin: 5px 0;
-        }
-
-        .footer a {
-            color: #FFD700;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer a:hover {
-            color: #FFFFFF;
-        }
-
-        .rules,
-        .roles,
-        .info,
-        .changelogs,
-        .home {
-            background-size: cover;
-            background-blend-mode: darken;
-        }
-
-        .rules {
-            background-image: url('image4.png');
-        }
-
-        .roles {
-            background-image: url('image3.jpg');
-        }
-
-        .info {
-            background-image: url('image5.png');
-        }
-
-        .changelogs {
-            background-image: url('image6.png');
-        }
-
-        .home {
-            background-image: url('herewego.jpg');
-        }
-
-        h1, h2 {
-            color: #FFD700;
-            text-shadow: 2px 2px 5px black;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 1.5em;
         }
 
         h1 {
-            font-size: 2em;
+            color: #e63946;
         }
 
-        p {
-            font-size: 14px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px black;
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .rules-container {
+            margin-bottom: 40px;
+        }
+
+        .rules-container h2 {
+            color: #e63946;
+            border-bottom: 2px solid #e63946;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .rule {
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .rule h3 {
+            color: #e63946;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            border: 2px solid #e63946;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+            animation: fadeInPopup 0.5s ease-in-out;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .popup h3 {
+            color: #e63946;
+        }
+
+        .popup p {
+            margin-top: 10px;
+            white-space: pre-line; /* Preserve formatting */
+        }
+
+        .close-btn {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .close-btn button {
+            background-color: #e63946;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-btn button:hover {
+            background-color: #c72f39;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        footer {
+            background-color: #333;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 10px 0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        .navbar, .content section, .footer {
-            animation: fadeIn 1s ease-in-out;
+        @keyframes fadeInPopup {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#rules">Rules</a>
-        <a href="#roles">Roles</a>
-    </div>
-    <div class="content">
-        <h1>Website is still under maintenance</h1>
-        <section id="home" class="home">
-            <h2>Current Staff</h2>
-            <h2>Owners</h2>
-            <p>• SkevandCodiene</p>
-            <p>• Sl1ck</p>
-            <p>• Overkill</p>
-            <p>• Casherzz</p>
-            <h2>Site Administration Board (Admin)</h2>
-            <p>• Fadetrimmer</p>
-            <p>• RoyalMintz</p>
-            <h2>Internal Affairs (Admin)</h2>
-            <p>• Hopeful</p>
-            <p>• N1ghtm4re</p>
-            <p>• Ecydisis</p>
-            <h2>ISD Agent (Hosters)</h2>
-            <p>• Coke Guzzler</p>
-            <p>• Sylkx</p>
-            <p>• Womp</p>
-            <p>• VisLuke</p>
-            <p>• Virgil</p>
-            <p>• Stick</p>
-            <p>• BurningEmber</p>
-            <p>• CuppaJoe</p>
-            <p>• PhoneyCyka</p>
-            <p>• TheFlyingCyclops</p>
-            <p>• SapperSoul</p>
-            <h2>ISD Trainee Agent (Hoster in training)</h2>
-            <p>• SALT-T</p>
-            <p>• TheOldArchitect</p>
-            <p>• Dubf</p>
-            <p>• TheNutDealer</p>
-            <p>• MasterPigZombie (Stock)</p>
-            <h2>Raisa (Moderators)</h2>
-            <p>• Postal</p>
-            <p>• Fadedstories</p>
-            <p>• Chaotic Club</p>
-            <p>• Soda</p>
-            <p>• Junkmail</p>
-            <p>• PG</p>
-            <p>• Escalad</p>
-        </section>
-        <section id="rules" class="rules">
+    <header>
+        <h1>Site-12 RP Server Rules</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#general-rules">General Rules</a></li>
+            <li><a href="#roleplay-rules">Roleplay Rules</a></li>
+            <li><a href="#communication-rules">Communication Rules</a></li>
+            <li><a href="#role-specific-rules">Role Specific Rules</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="general-rules" class="rules-container">
             <h2>General Rules</h2>
-            <p>• Using cheats or disruptive in-game exploits is strictly prohibited.</p>
-            <p>• NO SOUNDBOARDS IN RP. The only exception is a hoster gives permission, in which case the soundboard must make sense. Soundboards should be kept to a minimum outside of RP as well.</p>
-            <p>• Racism, homophobia, or any sort of hateful language is strictly prohibited.</p>
-            <p>• Stay in character as much as possible, and notify others when you are not. If you have no intent to roleplay, this is not the server for you.</p>
-            <p>• Be respectful out of character, only be rude in character if the situation calls for it.</p>
-            <p>• Remember to FEARRP; Value your life and be afraid of your character's death!</p>
-            <p>• Do not mention OOC (Out of Character) knowledge! If your character wouldn't know something, then you shouldn't be acting like you do. When you die, you are a new character, so don't mention your past lives.</p>
-            <p>• Obey chain of command! Blatant disobedience when in threat of harm or punishment is unrealistic. If following orders requires you to break the rules, the person who ordered you will be punished.</p>
-            <p>• Follow the guidelines and rules for your specific role listed below. These may be ignored if you have a good enough reason and roleplay it well.</p>
-            <p>• Harassing hosters or other players, or generally being a nuisance to the server will result in punishment.</p>
-            <h1>Gun License Rules</h1>
-            <p>1. You may only carry a Class 1A firearm if you have a non-security corps level Gun License. Any modifications must fall strictly under the 1A Class. Failure to follow this may result in your firearm being considered "contraband" and taken by Security personnel and you'll lose your gun license.</p>
-            <p>2. Your firearm must remain UNLOADED and HOLSTERED at all times, and should only begin to be brandished and loaded in times of emergency like a code white/code red. Walking around with a loaded firearm, even holstered is a dangerous thing to do and will result in your gun license being removed.</p>
-            <p>3. Guards have the right to inspect your firearm for the safety of other foundation personnel. Regular checkups by random security personnel/checkpoint personnel are non-negotiable and must always be followed. Refer to rule 1 For the consequences of checkups such as these.</p>
-            <p>4. Carrying any firearm above the Class 1A Level is strictly prohibited at all times even during dangerous scenarios. Security personnel may detain and arrest you if you are caught carrying a Level 1B to Level 5B firearm and you'll lose your gun license if found having an illegal firearm.</p>
-            <p>5. Your gun license is for your self-defense. Using your firearm offensively is strictly prohibited and should only be used if assaulted or attacked. Do not go towards anything that could be dangerous like where an SCP has breached or if you hear gunfire do not go towards it. If you're found using the gun license offensively it will be taken away.</p>
-            <p>6. Do not attempt to hunt down escaped Class-D personnel, and do not attempt to handcuff them either. If they are not an immediate threat, let them pass but immediately let security personnel know afterwards.</p>
-            <p>7. Aiming your weapon, loaded or not, at Mobile Task Force or Security personnel can result in immediate termination. And if you survive the loss of your gun license</p>
-            <p>8. You must be at least a level 2 personnel (In-game) to get a gun. So if you're a janitor or a junior researcher or anything of the like you cannot get a gun license. The only exception to this rule is security personnel like junior agents.</p>
+            <div class="rules-grid">
+                <div class="rule" onclick="showPopup('No Cheating or Exploiting', 'Using cheats or disruptive in-game exploits is strictly prohibited. Ensure fair play for everyone.')">
+                    <h3>No Cheating or Exploiting</h3>
+                    <p>Fair play for everyone. Cheating is prohibited.</p>
+                </div>
+                <div class="rule" onclick="showPopup('No Hateful Language', 'Racism, homophobia, or any sort of hateful language is strictly prohibited. Respect all players.')">
+                    <h3>No Hateful Language</h3>
+                    <p>Racism, homophobia, or any sort of hateful language is prohibited.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Stay in Character', 'Stay in character as much as possible, and notify others when you are not. If you have no intent to roleplay, this is not the server for you.')">
+                    <h3>Stay in Character</h3>
+                    <p>Stay in character as much as possible. Notify others when you are not.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Be Respectful', 'Be respectful out of character, only be rude in character if the situation calls for it. Treat others with courtesy.')">
+                    <h3>Be Respectful</h3>
+                    <p>Be respectful out of character. Only be rude in character if necessary.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Value Your Life (FEARRP)', 'Remember to FEARRP; value your life and be afraid of your character\'s death! Make decisions that reflect the fear of losing your character.')">
+                    <h3>Value Your Life (FEARRP)</h3>
+                    <p>FEARRP: Value your life and fear character death.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Obey Chain of Command', 'Obey chain of command! Blatant disobedience when in threat of harm or punishment is unrealistic. If following orders requires you to break the rules, the person who ordered you will be punished.')">
+                    <h3>Obey Chain of Command</h3>
+                    <p>Obey chain of command. Disobedience is unrealistic.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Follow Role-Specific Rules', 'Follow the guidelines and rules for your specific role listed below. These may be ignored if you have a good enough reason and roleplay it well.')">
+                    <h3>Follow Role-Specific Rules</h3>
+                    <p>Follow your role's guidelines and rules.</p>
+                </div>
+                <div class="rule" onclick="showPopup('No Harassment', 'Harassing hosters or other players, or generally being a nuisance to the server will result in punishment. Respect everyone.')">
+                    <h3>No Harassment</h3>
+                    <p>Harassing others will result in punishment.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Fail RP (FRP)', 'Failing to Roleplay, also known as Fail RP (FRP), includes actions such as using soundboards during RP, engaging in out-of-character (OOC) behavior with no intent to roleplay, or any actions that disrupt the immersion of the roleplay environment.')">
+                    <h3>Fail RP (FRP)</h3>
+                    <p>Failing to Roleplay e.g. (Soundboards in RP, OOC with no intent to RP, etc.)</p>
+                </div>
+            </div>
         </section>
-        <section id="roles" class="roles">
-            <h1>Human Roles</h1>
-            <h2>Mobile Task Force Members:</h2>
-            <p>• Do not need to openly FearRP, but must still value their lives.</p>
-            <p>• Take a SLOW AND STEADY approach to clearing out the facility. DO NOT RUN STRAIGHT INTO DANGER LIKE AN IDIOT, PLAY AS A SPECIAL FORCES SOLDIER WOULD AND CLEAR ROOMS BIT BY BIT.</p>
-            <p>• Must NEVER use any SCP items. No matter the situation, unless cleared by the Main Hoster.</p>
-            <p>• Must not waste ammunition by graffitiing walls or shooting into the ceiling/sky.</p>
-            <p>• May kill uncuffed and alone Class-D on sight, armed or not. Note: this may result in the death of a Janitor, which will not fall onto the fault of the MTF who killed them as chances are not to be taken. If a Janitor wants to survive they should stick by other personnel.</p>
-            <p>• Must not engage in conversation with researchers or other personnel that are not part of security. They must always prioritize their task first, even if that means giving people the cold shoulder.</p>
-            <p>• Are to call out usage of a grenade before throwing one.</p>
-            <p>• Are not to Terminate SCPs unless they have full knowledge of a greenlight in place.</p>
-            <p>• Must never endanger research personnel. This includes shooting past them down a hall, aiming at them, or shooting through them to kill someone/something else.</p>
-            <p>NOTE: Act professionally. Do not rush forward all gun-ho like there won't be any consequences and keep it quiet. Split off into small groups and clear rooms while slow-walking. Encourage others to do the same. Play it like a Mil-Sim.</p>
-            <p>NOTE 2: More 'elite' Mobile Task Force units (i.e Red Right Hand) may have termination rights for even the smallest discrepancies researchers or Security personnel may make, such as approaching when warned not to near them. Obviously, do not abuse these rights, you can be reported if it's unfair TK.</p>
-            <h2>Chaos Insurgency Members:</h2>
-            <p>• Kill all foundation personnel on sight, including Class-D (if they feel that it is necessary).</p>
-            <p>• Are to avoid surrender and mostly die for their cause.</p>
-            <p>• Abuse and destroy as much of the foundation as possible.</p>
-            <p>• Not be allowed to team kill.</p>
-            <p>NOTE: The CI aren't required to clear out rooms slowly and tactically but it is still heavily suggested. CI are still special forces, but it is not required.</p>
-            <h2>Research Personnel:</h2>
-            <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most likely result a FailRP offense.</p>
-            <p>• Are required to listen to Senior Researchers/Supervisors no matter what. If you feel that their order was against RP or under FailRP rules, report them.</p>
-            <p>• In need of Class-D for a test, are to request a guard to verify and accompany you. That being said, DO NOT TAKE CLASS-D FROM THEIR CELLS WITHOUT GUARDS PRESENT.</p>
-            <p>• Are NOT to carry any sort of firearm without a gun license. Doing so will result in arrest and the revoking of your security clearance card for a time.</p>
-            <p>• Are NOT to pick up guns during a breach and attempt to help Mobile Task Force or guards. The main priority of all researchers is to escape the facility/hide from threats.</p>
-            <p>• Are NOT to loot emergency medical supply boxes found on walls or any of the lockers. You should treat those static objects with real-world value.</p>
-            <p>NOTE: Foundation personnel may not act as undercover CI spies unless given express permission by the Main Hoster.</p>
-            <h2>Class-D Personnel:</h2>
-            <p>• Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most likely result a FailRP offense.</p>
-            <p>• Most likely, a Class-D won't know anything about the facility prior to the round, so please do not meta-game and act like you know everything about the facility. However, if you RP that you are an experienced class-d who has been around for awhile, you may bypass this rule depending on how well you RP it.</p>
-            <p>• Do not constantly yell or scream from within your cell. It is annoying for the people around you and can be counted as mic spam. No more "let me out! Let me out!" please.</p>
-            <p>• Do not listen to a Researcher/Scientist unless permitted to by a guard. i.e: A Scientist opens up your cell door and asks you to step out, with no guard present or no guard allowing it.</p>
-            <p>• Do not purposefully be a nuisance and only act realistically in a situation. This means door cheesing out of a cell when told to get in. If you are acting out enough with behavior such as that or Bunny Hopping around a bunch then you can be reported for FailRP.</p>
-            <p>NOTE: Class-D May be shot on sight ONLY BY MOBILE TASK FORCE If undetained. Even if you have no gun, not being near facility personnel is a risk you take during a breach of security.</p>
-            <h2>Security Personnel:</h2>
-            <p>• Are to practice some FearRP. You were trained highly for your position at the SCP Foundation but you can still be frightened.</p>
-            <p>• Are NOT to shoot walls and waste ammo. With this, graffitiing walls pre-round or during rp will result in a ban.</p>
-            <p>• Are to terminate Class-D on sight ONLY when in threat of danger from a confirmed to be armed Class-D.</p>
-            <p>• Are to warn any personnel at risk of termination, clearly and at least twice, before terminating the subject.</p>
-            <p>• Are to ask All researchers that have been seen brandishing a weapon if they have a gun license. If not, they are to hand over their weapon. If the researcher does have a gun license, the guard must relay the name of the researcher and confirm their license on the radio.</p>
-            <p>• Must not let researchers enter CDC (Class-D Cells) without permission.</p>
-            <p>• Are NOT to crowd testing procedures. Went to a test you really wanted to be present at but there were too many guards there already? Too bad! Be the bigger man and go on patrol elsewhere.</p>
-            <p>• Are to stay at their assigned post no matter what, unless a serious situation needs assistance and no one else can assist.</p>
-            <p>• Must never aim or antagonize any Facility Personnel.</p>
-            <p>• Must NEVER misuse flash grenades, doing so will result in an immediate ban. Also, always call out that you will be throwing one to your teammates, or in more stealthy situations, ensure that surrounding teammates know before its thrown.</p>
-            <p>NOTE: It goes without saying that all guards must obey the orders of higher ranking personnel. If you feel that they have made an unjust order that goes against RP, report them.</p>
-            <h1>SCP Roles</h1>
-            <p>• SCP Roles will only be given out to those who understand how to play them. Check out the how to play SCP category for a set of rules and recontainment procedures</p>
-            <h1>SCP-173:</h1>
-            <p>• When being looked at by 2 or more people, you may not move in any way.</p>
-            <p>• when the lights are off, you may move freely UNLESS A FLASHLIGHT IS ON YOU.</p>
-            <p>• You are unrelenting, and cannot be reasoned with. No matter who they are or how hard they beg, kill them.</p>
-            <p>• Avoid SCP-096, do not work with other SCPs.</p>
-            <p>• When caged, RESPONSIBLY USE NOCLIP</p>
-            <h1>173 RECONTAINMENT:</h1>
-            <p>• A minimum of 5 MTF (not guards) must "deploy" (surround 173 and exclaim "caged") a level 4 standard issue caging device. At that point, SCP 173 will be "lifted" (given noclip). If any less then 4 are present with 173 then he will be dropped. From there he is to he returned to any cell or extracted by helicopter.</p>
-            <h1>173 TERMINATION:</h1>
-            <p>• 173s termination is Red light to the MTF unless given direct allowance from higher powers to terminate. Higher powers does NOT include MTF Captains.</p>
-            <h1>SCP-049:</h1>
-            <p>• Proximity Chat is enabled by using the "Left alt" key. DO NOT use this if you are speaking to other SCPs OOC.</p>
-            <p>• Choose certain people to NOT kill, as not everyone has the pestilence in your eyes.</p>
-            <p>• Do not be incredibly aggressive unless provoked, or if someone has a bad pestilence.</p>
-            <p>• Talk in a proper, almost posh tone. Sound elegant and not sloppy, avoid using slang when talking with others.</p>
-            <p>• Attempt to listen to MTF when you deem necessary.</p>
-            <h1>049 RECONTAINMENT:</h1>
-            <p>• MTF (3+) are to either intimidate or reason with 049 until 049 complies with MTF, in which he is either escorted back to containment or off site by helicopter.</p>
-            <h1>049 TERMINATION:</h1>
-            <p>049-2s are to be terminated on site no matter what. They are aggressive and unpredictable. 049 himself is only to be terminated if he continuously denies compliance, of if there are 6+ 049-2s.</p>
-            <h1>SCP-079:</h1>
-            <p>• You may communicate with Site Personnel to attempt to manipulate / work with the site.</p>
-            <p>• It is optional to work with other SCPs.</p>
-            <p>• Become more and more aggressive as more generators are turned off, attempt to have all generators not be activated.</p>
-            <p>• Talk in a robotic-type tone, do not act completely human.</p>
-            <p>• Only kill people with Tesla Gates on rare occasions.</p>
-            <p>• Attempt to lure SCPs towards people or lure people towards other SCPs.</p>
-            <h1>BREACH PROTOCALLS:</h1>
-            <p>• In the event of a confirmed facility takeover by SCP-079, all personnel should be equipped with flashlights and a communications device</p>
-            <h1>079 RECONTAINMENT:</h1>
-            <p>• All 3 emergency power stations must be online and fully charged, after which the recontainment procedure must be initiated in SCP-079’s control room</p>
-            <p>• SCP-079 is considered a medium priority anomaly and must be recontained as soon as possible</p>
-            <h1>SCP-096:</h1>
-            <p>• No ruleplay! Do not attempt to force people to look at your face. This includes purposefully leading people down sets of stairs, or crying on a gate to trick a wave of MTF to look at you.</p>
-            <p>• No sweaty playing, like Bunny Hopping and elevator/door juking.</p>
-            <p>• Wander aimlessly and attempt to avoid people WHEN DOCILE.</p>
-            <p>• WHEN ENRAGED, attempt to cause as much destruction as possible until your target is dead.</p>
-            <p>• Avoid other SCPs, especially 173.</p>
-            <h1>096 CONTAINMENT:</h1>
-            <p>• Similar to 173s containment, 5 MTF must surround 096 and exclaim that he is bagged. Once 096 is bagged, you may look at him freely, however he can still be enraged if he is shot! If he is enraged while bagged, the bagged is considered ripped and you must rebag him once he has calmed down</p>
-            <h1>096 TERMINATION:</h1>
-            <p>• In the VERY RARE event that 096 is green light for termination, all foundation forces must throw everything they have to attempt to nullify (terminating, just using a fancy word since he technically doesn't die...) him. Please note: 096 is unable to be bagged by escaped personnel who have become MTF specialists, however can be bagged after the first wave of MTF arrive (after a breach, an MTF wave during prep or pre-breach does not count). also, chaos Insurgency may also bag him, and steal him</p>
-            <h1>SCP-106:</h1>
-            <p>• Kill, do not spare.</p>
-            <p>• Do not rule play. No Bunny Hopping or elevator/door juking.</p>
-            <p>• Avoid other SCPs, do not team.</p>
-            <p>• (Optional) if a target is by themselves, maybe scare them at first instead of going straight in for the kill. Like watching from a distance or purposefully portalling beneath their feet.</p>
-            <h1>106 RECONTAINMENT:</h1>
-            <p>• In the rare chance the Femur breaker is working, take a single person to sacrifice themselves and use the femur breaker.(a hoster is needed to assist with this so don't depend on this)</p>
-            <h1>106 TERMINATION:</h1>
-            <p>• Very similar to the 096 termination procedures, everything must be thrown at 106 to nullify him and send him to his pocket dimension long enough for Recontainment to actually occur.</p>
-            <p>• In some cases (dependent on the hoster) 106 may not be able to be terminated until a certain milestone is reached, ex. A certain MTF Unit must spawn, or the 3rd wave must be deployed. In some cases, he may only be able to be terminated by the alpha warhead, so some peoples jobs must be to keep him within the blast zone.</p>
-            <h1>SCP-939:</h1>
-            <p>• Do NOT spam voice lines. Only use them with the intent to trick someone.</p>
-            <p>• Do not work with other SCPs</p>
-            <p>• You cannot kill someone being completely quiet even if you "see" them up close.</p>
-            <p>• Do not listen to reason with humans.</p>
-            <p>• DONT RULEPLAY!!! Meaning don't sweat, like Bunny Hopping and closing doors as you run through them and "elevator juking".</p>
-            <p>• You may retreat and become less aggressive if your health Is low.</p>
-            <p>• Do NOT move during testing until it is made very clear that you are unfrozen in your chamber.</p>
-            <p>• You are only to breach when it is explicitly clear that you are no longer properly contained.</p>
-            <p>• 939 CAN hear radios, make sure to turn them off if he is nearby... it may be the death of you.</p>
-            <h1>939 RECONTAINMENT:</h1>
-            <p>• If the containment cell door is not broken, re-closing it on 939 is enough to recontain them temporarily. However, the cryogenics must be activated to re-freeze 939 to fully recontain them.</p>
-            <h1>939 TERMINATION:</h1>
-            <p>• If the door to 939s cell is broken, it is designated for termination from the get-go</p>
-            <h1>SCP Items Rules:</h1>
-            <p>UNDER NO CIRCUMSTANCE ARE ANY FOUNDATION PERSONNEL ALLOWED TO USE THEM, UNLESS CLEARED BY AN 05 COUNCIL, HOSTER/ADMIN, OR ANY SPECIAL ROLE THAT GIVES EXPLICIT PERMISSION TO HANDLE SCP ITEMS.</p>
-            <p>• Chaos Insurgency are to attempt to steal as many as possible.</p>
-            <p>• If you are a low rank foundation personnel and find one laying around, report it to a higher ranking member.</p>
-            <p>• Recontainment of them is easy, put it back in its box or if that's not possible, put it in GR18 or a different containment cell temporarily.</p>
-            <p>• Any personnel PROVEN to be stealing/utilizing SCPs may be designated for termination, and please report it if you see someone doing so</p>
-            <h1>SCP 3114</h1>
-            <p>SCP 3114 is compelled to terminate Foundation staff rather than Dclass (Scp 3114 wishes to escape and a disguise of a foundation staff is more effective than dclass)</p>
-            <p>SCP 3114 is to actively avoid groups to prevent blowing their cover but can integrate if it will boost their chance at escaping.</p>
-            <p>SCP 3114 must Rp as the player they are disguised as to the best of their ability.</p>
-            <p>SCP 3114 is always compelled to stay disguised as much as possible if able (Skele does not like to be naked)</p>
-            <p>SCP 3114 Should avoid use M2 to terminate personnel. M2 to grab and prevent runners but avoid killing this way  (Choking people causes them to scream or call for help) Use M1 to kill.This Rule is under Review</p>
-            <h1>3114 + HUMAN RULES</h1>
-            <h1>-------------------------------------------</h1>
-            <p>Shooting personnel is strictly forbidden for testing of disguised SCP 3114 the foundation does not want any personnel discharging weapons randomly if you attempt this without permissions you will be detainted  Checking for SCP 3114 should be conducted by item check (NOT by Weapons) Example: Radio Check (3114 cannot speak into radios) Card checks (SCP 3114 may have multiple cards or a card belonging to another personnel)  SCP 3114 is redlight until a higher power says otherwise or Site Director Death/ Nuke has detonated Humans are advised to stay in larger groups than 2 to avoid being ambushed by 3114 To prevent accidental TK or intentional TK you should only fire on SCP 3114 in Skeleton form ( SCP 3114 can only attack personnel while in Skeleton form)</p>
-            <p>Recontainment Method</p>
-            <p>When SCP 3114 is low HP it may dance while undisguised or speak to MTF to surrender to MTF  3 MTF needed to Recontain by Caging the SCP If SCP 3114 is Admin Cuffed it is Caged</p>
-        </section>
-    </div>
-    <div class="footer">
-        <p>Join our Discord server here: <a href="https://discord.gg/site12">Discord</a></p>
-        <p>Staff Positions are Volunteer only.</p>
-    </div>
-</body>
 
+        <section id="roleplay-rules" class="rules-container">
+            <h2>Roleplay Rules</h2>
+            <div class="rules-grid">
+                <div class="rule" onclick="showPopup('No Random Deathmatching (RDM)', 'Players are not allowed to kill others without a valid RP reason. Ensure that all actions are justified within the roleplay context.')">
+                    <h3>No Random Deathmatching (RDM)</h3>
+                    <p>No killing without a valid RP reason.</p>
+                </div>
+                <div class="rule" onclick="showPopup('No Metagaming', 'Using out-of-character information in-character is prohibited. All knowledge must come from in-character interactions.')">
+                    <h3>No Metagaming</h3>
+                    <p>No using OOC information in character.</p>
+                </div>
+                <div class="rule" onclick="showPopup('No Team Killing', 'Team killing is not allowed unless given a proper RP reason. An exception is made for Class-D personnel, who may kill each other. All actions must be justifiable within the roleplay scenario.')">
+                    <h3>No Team Killing</h3>
+                    <p>Team killing is allowed only with a valid RP reason. Exception for Class-D.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Roleplay Realistically', 'All players must engage in realistic roleplay, avoiding any actions that break immersion. Strive to maintain a believable and immersive environment.')">
+                    <h3>Roleplay Realistically</h3>
+                    <p>Engage in realistic roleplay to maintain immersion.</p>
+                </div>
+                <div class="rule" onclick="showPopup('No ERP', 'Explicit roleplay (ERP) is strictly prohibited and affects normal rounds as well. Maintain appropriate and respectful behavior at all times.')">
+                    <h3>No ERP</h3>
+                    <p>Explicit roleplay (ERP) is prohibited in all rounds.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Use Proper RP Names', 'Use appropriate and realistic RP names that fit the roleplay setting. Avoid using offensive or unrealistic names.')">
+                    <h3>Use Proper RP Names</h3>
+                    <p>Use realistic and fitting RP names.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="communication-rules" class="rules-container">
+            <h2>Communication Rules</h2>
+            <div class="rules-grid">
+                <div class="rule" onclick="showPopup('No Mic Spamming', 'Avoid spamming the in-game voice chat with unnecessary or loud noises. Use voice chat responsibly and respect other players.')">
+                    <h3>No Mic Spamming</h3>
+                    <p>Avoid unnecessary or loud noises in voice chat.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Be Respectful', 'Be respectful out of character, only be rude in character if the situation calls for it. Treat others with courtesy.')">
+                    <h3>Be Respectful</h3>
+                    <p>Be respectful out of character. Only be rude in character if necessary.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="role-specific-rules" class="rules-container">
+            <h2>Role Specific Rules</h2>
+            <div class="rules-grid">
+                <div class="rule" onclick="showPopup('Class-D Personnel', 'Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most likely result in a FailRP offense.\n\nMost likely, a Class-D won\'t know anything about the facility prior to the round, so please do not meta-game and act like you know everything about the facility. However, if you RP that you are an experienced Class-D who has been around for a while, you may bypass this rule depending on how well you RP it.\n\nDo not constantly yell or scream from within your cell. It is annoying for the people around you and can be counted as mic spam. No more 'let me out! Let me out' please.\n\nDo not listen to a Researcher/Scientist unless permitted to by a guard. i.e: A Scientist opens up your cell door and asks you to step out, with no guard present or no guard allowing it.\n\nDo not purposefully be a nuisance and only act realistically in a situation. This means door cheesing out of a cell when told to get in. If you are acting out enough with behavior such as that or Bunny Hopping around a bunch then you can be reported for FailRP.\n\nNOTE: Class-D may be shot on sight ONLY BY MOBILE TASK FORCE if undetained. Even if you have no gun, not being near facility personnel is a risk you take during a breach of security.')">
+                    <h3>Class-D Personnel</h3>
+                    <p>Follow specific Class-D roleplay rules and FearRP.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Research Personnel', 'Should at all times practice FearRP (be realistically afraid for your life). Failure to do this will most likely result in a FailRP offense.\n\nAre required to listen to Senior Researchers/Supervisors no matter what. If you feel that their order was against RP or under FailRP rules, report them.\n\nIn need of Class-D for a test, are to request a guard to verify and accompany you. That being said, DO NOT TAKE CLASS-D FROM THEIR CELLS WITHOUT GUARDS PRESENT.\n\nAre NOT to carry any sort of firearm without a gun license. Doing so will result in arrest and the revoking of your security clearance card for a time.\n\nAre NOT to pick up guns during a breach and attempt to help Mobile Task Force or guards. The main priority of all researchers is to escape the facility/hide from threats.\n\nAre NOT to loot emergency medical supply boxes found on walls or any of the lockers. You should treat those static objects with real-world value.\n\nNOTE: Foundation personnel may not act as undercover CI spies unless given express permission by the Main Hoster.')">
+                    <h3>Research Personnel</h3>
+                    <p>Follow specific Research Personnel roleplay rules and FearRP.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Security Personnel', 'Are to practice some FearRP. You were trained highly for your position at the SCP Foundation but you can still be frightened.\n\nAre NOT to shoot walls and waste ammo. With this, graffitiing walls pre-round or during RP will result in a ban.\n\nAre to terminate Class-D on sight ONLY when in threat of danger from a confirmed to be armed Class-D.\n\nAre to warn any personnel at risk of termination, clearly and at least twice, before terminating the subject.\n\nAre to ask all researchers that have been seen brandishing a weapon if they have a gun license. If not, they are to hand over their weapon. If the researcher does have a gun license, the guard must relay the name of the researcher and confirm their license on the radio.\n\nMust not let researchers enter CDC (Class-D Cells) without permission.\n\nAre NOT to crowd testing procedures. Went to a test you really wanted to be present at but there were too many guards there already? Too bad! Be the bigger man and go on patrol elsewhere.\n\nAre to stay at their assigned post no matter what, unless a serious situation needs assistance and no one else can assist.\n\nMust never aim or antagonize any Facility Personnel.\n\nMust NEVER misuse flash grenades, doing so will result in an immediate ban. Also, always call out that you will be throwing one to your teammates, or in more stealthy situations, ensure that surrounding teammates know before it\'s thrown.\n\nNOTE: It goes without saying that all guards must obey the orders of higher-ranking personnel. If you feel that they have made an unjust order that goes against RP, report them.')">
+                    <h3>Security Personnel</h3>
+                    <p>Follow specific Security Personnel roleplay rules and FearRP.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Mobile Task Force Members', 'Do not need to openly FearRP, but must still value their lives.\n\nTake a SLOW AND STEADY approach to clearing out the facility. DO NOT RUN STRAIGHT INTO DANGER LIKE AN IDIOT, PLAY AS A SPECIAL FORCES SOLDIER WOULD AND CLEAR ROOMS BIT BY BIT.\n\nMust NEVER use any SCP items. No matter the situation, unless cleared by the Main Hoster.\n\nMust not waste ammunition by graffitiing walls or shooting into the ceiling/sky.\n\nMay kill uncuffed and alone Class-D on sight, armed or not. Note: this may result in the death of a Janitor, which will not fall onto the fault of the MTF who killed them as chances are not to be taken. If a Janitor wants to survive they should stick by other personnel.\n\nMust not engage in conversation with researchers or other personnel that are not a part of security. They must always prioritize their task first, even if that means giving people the cold shoulder.\n\nAre to call out usage of a grenade before throwing one.\n\nAre not to terminate SCPs unless they have full knowledge of a greenlight in place.\n\nMust never endanger research personnel. This includes shooting past them down a hall, aiming at them, or shooting through them to kill someone/something else.\n\nNOTE: Act professionally. Do not rush forward all gun-ho like there won\'t be any consequences and keep it quiet. Split off into small groups and clear rooms while slow-walking. Encourage others to do the same. Play it like a Mil-Sim.\n\nNOTE 2: More \'elite\' Mobile Task Force units (i.e Red Right Hand) may have termination rights for even the smallest discrepancies researchers or Security personnel may make, such as approaching when warned not to near them. Obviously, do not abuse these rights, you can be reported if it\'s unfair TK.')">
+                    <h3>Mobile Task Force Members</h3>
+                    <p>Follow specific MTF roleplay rules. Act professionally.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Chaos Insurgency Members', 'Kill all foundation personnel on sight, including Class-D (if they feel that it is necessary).\n\nAre to avoid surrender and mostly die for their cause.\n\nAbuse and destroy as much of the foundation as possible.\n\nNot be allowed to team kill.\n\nNOTE: The CI aren\'t required to clear out rooms slowly and tactically but it is still heavily suggested. CI are still special forces, but it is not required.')">
+                    <h3>Chaos Insurgency Members</h3>
+                    <p>Kill all foundation personnel. Avoid surrender.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-173 Rules', 'When being looked at by 2 or more people, you may not move in any way.\n\nWhen the lights are off, you may move freely UNLESS A FLASHLIGHT IS ON YOU.\n\nYou are unrelenting, and cannot be reasoned with. No matter who they are or how hard they beg, kill them.\n\nAvoid SCP-096, do not work with other SCPs.\n\nWhen caged, RESPONSIBLY USE NOCLIP.')">
+                    <h3>SCP-173 Rules</h3>
+                    <p>Follow SCP-173 roleplay rules. Cannot move when looked at by 2 or more people.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-173 Recontainment', 'A minimum of 5 MTF (not guards) must 'deploy' (surround 173 and exclaim 'caged') a level 4 standard issue caging device. At that point, SCP 173 will be 'lifted' (given noclip). If any less than 4 are present with 173 then he will be dropped. From there he is to he returned to any cell or extracted by helicopter.')">
+                    <h3>SCP-173 Recontainment</h3>
+                    <p>A minimum of 5 MTF (not guards) must "deploy" and surround SCP-173.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-173 Termination', '173\'s termination is Red light to the MTF unless given direct allowance from higher powers to terminate. Higher powers does NOT include MTF Captains.')">
+                    <h3>SCP-173 Termination</h3>
+                    <p>Termination requires direct allowance from higher powers.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-049 Rules', 'Proximity Chat is enabled by using the 'Left alt' key. DO NOT use this if you are speaking to other SCPs OOC.\n\nChoose certain people to NOT kill, as not everyone has the pestilence in your eyes.\n\nDo not be incredibly aggressive unless provoked, or if someone has a bad pestilence.\n\nTalk in a proper, almost posh tone. Sound elegant and not sloppy, avoid using slang when talking with others.\n\nAttempt to listen to MTF when you deem necessary.')">
+                    <h3>SCP-049 Rules</h3>
+                    <p>Follow SCP-049 roleplay rules. Use proximity chat for in-character communication.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-049 Recontainment', 'MTF (3+) are to either intimidate or reason with SCP-049 until SCP-049 complies with MTF, in which he is either escorted back to containment or off-site by helicopter.')">
+                    <h3>SCP-049 Recontainment</h3>
+                    <p>MTF (3+) are to either intimidate or reason with SCP-049 until compliance.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-049 Termination', 'SCP-049-2s are to be terminated on sight no matter what. They are aggressive and unpredictable. SCP-049 himself is only to be terminated if he continuously denies compliance, or if there are 6+ SCP-049-2s.')">
+                    <h3>SCP-049 Termination</h3>
+                    <p>Terminate SCP-049-2s on sight. Terminate SCP-049 if non-compliant.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-079 Rules', 'You may communicate with Site Personnel to attempt to manipulate / work with the site.\n\nIt is optional to work with other SCPs.\n\nBecome more and more aggressive as more generators are turned off, attempt to have all generators not be activated.\n\nTalk in a robotic-type tone, do not act completely human.\n\nOnly kill people with Tesla Gates on rare occasions.\n\nAttempt to lure SCPs towards people or lure people towards other SCPs.')">
+                    <h3>SCP-079 Rules</h3>
+                    <p>Follow SCP-079 roleplay rules. Communicate to manipulate or work with site personnel.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-079 Recontainment', 'All 3 emergency power stations must be online and fully charged, after which the recontainment procedure must be initiated in SCP-079’s control room. SCP-079 is considered a medium priority anomaly and must be recontained as soon as possible.')">
+                    <h3>SCP-079 Recontainment</h3>
+                    <p>All 3 emergency power stations must be online and fully charged for recontainment.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-096 Rules', 'No ruleplay! Do not attempt to force people to look at your face. This includes purposefully leading people down sets of stairs, or crying on a gate to trick a wave of MTF to look at you.\n\nNo sweaty playing, like Bunny Hopping and elevator/door juking.\n\nWander aimlessly and attempt to avoid people WHEN DOCILE.\n\nWHEN ENRAGED, attempt to cause as much destruction as possible until your target is dead.\n\nAvoid other SCPs, especially SCP-173.')">
+                    <h3>SCP-096 Rules</h3>
+                    <p>Follow SCP-096 roleplay rules. Do not force people to look at your face.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-096 Recontainment', 'Similar to SCP-173\'s containment, 5 MTF must surround SCP-096 and exclaim that he is bagged. Once SCP-096 is bagged, you may look at him freely, however he can still be enraged if he is shot! If he is enraged while bagged, the bagged is considered ripped and you must rebag him once he has calmed down.')">
+                    <h3>SCP-096 Recontainment</h3>
+                    <p>5 MTF must surround SCP-096 and bag him for recontainment.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-096 Termination', 'In the VERY RARE event that SCP-096 is green light for termination, all foundation forces must throw everything they have to attempt to nullify (terminate) him. Please note: SCP-096 is unable to be bagged by escaped personnel who have become MTF specialists, however can be bagged after the first wave of MTF arrive (after a breach, an MTF wave during prep or pre-breach does not count). Also, chaos Insurgency may also bag him, and steal him.')">
+                    <h3>SCP-096 Termination</h3>
+                    <p>Terminate SCP-096 if green light is given. All forces must attempt to nullify him.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-106 Rules', 'Kill, do not spare.\n\nDo not rule play. No Bunny Hopping or elevator/door juking.\n\nAvoid other SCPs, do not team.\n\n(Optional) If a target is by themselves, maybe scare them at first instead of going straight in for the kill. Like watching from a distance or purposefully portalling beneath their feet.')">
+                    <h3>SCP-106 Rules</h3>
+                    <p>Follow SCP-106 roleplay rules. Kill, do not spare.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-106 Recontainment', 'In the rare chance the Femur breaker is working, take a single person to sacrifice themselves and use the femur breaker. (A hoster is needed to assist with this so don\'t depend on this)')">
+                    <h3>SCP-106 Recontainment</h3>
+                    <p>Use Femur breaker if working for recontainment.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-106 Termination', 'Very similar to the SCP-096 termination procedures, everything must be thrown at SCP-106 to nullify him and send him to his pocket dimension long enough for Recontainment to actually occur. In some cases (dependent on the hoster) SCP-106 may not be able to be terminated until a certain milestone is reached, ex. A certain MTF Unit must spawn, or the 3rd wave must be deployed. In some cases, he may only be able to be terminated by the alpha warhead, so some peoples jobs must be to keep him within the blast zone.')">
+                    <h3>SCP-106 Termination</h3>
+                    <p>Follow SCP-096 termination procedures for SCP-106. Use all available resources.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-939 Rules', 'Do NOT spam voice lines. Only use them with the intent to trick someone.\n\nDo not work with other SCPs.\n\nYou cannot kill someone being completely quiet even if you 'see' them up close.\n\nDo not listen to reason with humans.\n\nDONT RULEPLAY!!! Meaning don\'t sweat, like Bunny Hopping and closing doors as you run through them and 'elevator juking'.\n\nYou may retreat and become less aggressive if your health Is low.\n\nDo NOT move during testing until it is made very clear that you are unfrozen in your chamber.\n\nYou are only to breach when it is explicitly clear that you are no longer properly contained.\n\nSCP-939 CAN hear radios, make sure to turn them off if he is nearby... it may be the death of you.')">
+                    <h3>SCP-939 Rules</h3>
+                    <p>Follow SCP-939 roleplay rules. Do not spam voice lines.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-939 Recontainment', 'If the containment cell door is not broken, re-closing it on SCP-939 is enough to recontain them temporarily. However, the cryogenics must be activated to re-freeze SCP-939 to fully recontain them.')">
+                    <h3>SCP-939 Recontainment</h3>
+                    <p>Re-close the containment door to recontain SCP-939. Activate cryogenics to re-freeze them.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-939 Termination', 'If the door to SCP-939\'s cell is broken, it is designated for termination from the get-go.')">
+                    <h3>SCP-939 Termination</h3>
+                    <p>Terminate SCP-939 if the containment door is broken.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP Items Rules', 'UNDER NO CIRCUMSTANCE ARE ANY FOUNDATION PERSONNEL ALLOWED TO USE THEM, UNLESS CLEARED BY AN 05 COUNCIL, HOSTER/ADMIN, OR ANY SPECIAL ROLE THAT GIVES EXPLICIT PERMISSION TO HANDLE SCP ITEMS.\n\nChaos Insurgency are to attempt to steal as many as possible.\n\nIf you are a low rank foundation personnel and find one laying around, report it to a higher ranking member.\n\nRecontainment of them is easy, put it back in its box or if that\'s not possible, put it in GR18 or a different containment cell temporarily.\n\nAny personnel PROVEN to be stealing/utilizing SCPs may be designated for termination, and please report it if you see someone doing so.')">
+                    <h3>SCP Items Rules</h3>
+                    <p>Follow SCP items rules. No usage by Foundation personnel without explicit permission.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-049-2 Rules', 'SCP-049-2 MUST LISTEN to SCP-049. If the doctor tells you to attack someone, you can attack them, if not, you can not attack them.\n\nSCP-049-2’s are to try their best to stay near the doctor and not run off without permission from the doctor.\n\nSCP-049-2’s are not to b-hop around.\n\nSCP-049-2 Player Rules\n\nSCP-049-2’s are to be terminated by combative personnel if the opportunity is available. The key exception to this is if SCP-049 negotiates to keep some to return to containment.')">
+                    <h3>SCP-049-2 Rules</h3>
+                    <p>Follow SCP-049-2 roleplay rules. Must listen to SCP-049.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-3114 Rules', 'You may be friendly / hostile towards anyone. SCP-3114 is sentient and can choose who he wants to be friends/enemies with. Only try befriending people as a way to escape the facility.\n\nActively try to avoid groups to avoid being caught.\n\nTry RPing as whoever\'s skin you took to the best of your ability.\n\nWhen your disguise is about to automatically run out, act as if you hate the skin & are in pain.\n\nTry avoiding using the choke attack if you are in a large group of people, as there is no point and you\'ll be shot.\n\nYou want to stay disguised as much as possible, take as much skin as you can.\n\nIf you are being shot at, try running away.\n\nYou may attempt to work with the following SCPs; SCP-049, SCP-079, SCP-2176, and SCP-131.\n\nYou may not attempt to work with the following SCPs; SCP-106, SCP-096, SCP-939, and SCP-173.\n\nYour main goal as SCP-3114 is to escape, which means you need to be manipulative towards humans. You are allowed to attack people.')">
+                    <h3>SCP-3114 Rules</h3>
+                    <p>Follow SCP-3114 roleplay rules. You may be friendly or hostile.</p>
+                </div>
+                <div class="rule" onclick="showPopup('Human Rules', 'Shooting personnel is forbidden to test to see if someone is SCP-3114 as it will lead to TK.\n\nDo not conduct shooting tests to try figuring out if someone is SCP-3114, have them do a Radio Check or a Card Check.\n\nSCP-3114 is REDLIGHT until a higher power (Main Hoster) says otherwise, or nuke has been detonated and they have not been detained.\n\nHumans are advised to stay in larger groups than 2 to avoid being ambushed by SCP-3114.\n\nDo not shoot at SCP-3114 while they are in human form, only when they are in skeleton form. This is to avoid TK.\n\nIf the SCP-3114 tag breaks and shows their name as SCP-3114, act as if you don't know that it is SCP-3114.\n\nTry not to let SCP-3114 roam.')">
+                    <h3>Human Rules</h3>
+                    <p>Follow human rules to avoid team-killing and identify SCP-3114 correctly.</p>
+                </div>
+                <div class="rule" onclick="showPopup('SCP-3114 Recontainment', 'If SCP-3114 is low on HP it can dance while undisguised or speak to the MTF as a way of surrender, if they are GREENLIGHT for termination this will revert the GREENLIGHT into a REDLIGHT unless SCP-3114 begins attacking again.\n\n3 MTF are needed to detain SCP-3114 while in Human form.\n\n5 MTF are needed to detain SCP-3114 while in skeleton form.\n\nSCP-3114 may not be cuffed if they are in the middle of attacking mainly to avoid cheesing/metagaming, if you are playing SCP-3114 do not infinitely attack as a way to avoid being detained.\n\nIf the facility is destroyed, bring a detained SCP-3114 to the extraction helicopter while being surrounded by 5 MTF at all times.')">
+                    <h3>SCP-3114 Recontainment</h3>
+                    <p>Follow SCP-3114 recontainment procedures. 3 MTF for human form, 5 MTF for skeleton form.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Our Server</h2>
+            <p>Our RP server aims to provide a realistic and immersive experience for all players.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, please reach out to us at site12officialrp@gmail.com.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Site-12 RP Server. All rights reserved.</p>
+    </footer>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="popup" class="popup">
+        <h3 id="popup-title"></h3>
+        <p id="popup-content"></p>
+        <div class="close-btn">
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(title, content) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-content').innerText = content;
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
 </html>
